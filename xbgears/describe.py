@@ -30,6 +30,28 @@ TOOL_DESCRIPTIONS = {
             xyz2xb                                     # Use defaults, write XBGRID/{x.grd,y.grd,bed.dep}
             xyz2xb --xyz 001.xyz --outdir XBGRID        # Explicit file names
     """,
+    'xb2yz': """
+        Convert a 1D XBeach x.grd / *.dep profile into a two-column *.yz file.
+
+        x.grd and the *.dep file must contain the same number of values
+        (1D XBeach grid). The *.yz file has two columns (x, z), one point
+        per line, no header.
+
+        Examples:
+            xb2yz                                 # Use defaults, write YZ/bathy.yz
+            xb2yz --dep bed.dep --out bathy.yz     # Explicit file names
+    """,
+    'yz2xb': """
+        Convert a two-column *.yz profile file into 1D XBeach x.grd / bed.dep files.
+
+        Reverse of xb2yz. The *.yz file must contain whitespace-separated
+        "x z" rows with x strictly increasing; x.grd and bed.dep are written
+        with all values on a single row (XBeach 1D grid).
+
+        Examples:
+            yz2xb                                     # Use defaults, write XBGRID/{x.grd,bed.dep}
+            yz2xb --yz bathy.yz --outdir XBGRID         # Explicit file names
+    """,
 }
 
 
