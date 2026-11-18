@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "xbgears"
-version = "0.2.0"
+version = "0.3.0"
 authors = [
     { name = "aaronchh", email = "aaronhsu219@gmail.com" },
 ]
-description = "A collection of tools for converting between XBeach grid files and XYZ point files"
+description = "A collection of tools for XBeach: grid <-> XYZ conversion, params.txt generation and run cleanup"
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.9"
@@ -21,11 +21,14 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+[project.optional-dependencies]
+xlsx = ["pandas", "openpyxl"]
+
 [project.urls]
 Homepage = "https://github.com/AaronOET/xbgears"
 
 [tool.setuptools]
-packages = ["xbgears"]
+packages = ["xbgears", "xbgears.xbgen"]
 
 [project.scripts]
 xbgears = "xbgears.cli:main"
@@ -34,3 +37,5 @@ xb2xyz = "xbgears.xb2xyz:main"
 xyz2xb = "xbgears.xyz2xb:main"
 xb2yz = "xbgears.xb2yz:main"
 yz2xb = "xbgears.yz2xb:main"
+xbgen = "xbgears.xbgen:main"
+xbclr = "xbgears.xbclr:main"
